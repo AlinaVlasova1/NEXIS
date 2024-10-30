@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import {createRouter, createWebHistory} from "vue-router";
 import List from "@/components/List/List.vue";
-import Essence from "@/components/ Essence/Essence.vue";
+import EntityPage from "@/components/Entity/Entity.vue";
 
 export const router = createRouter({
     history: createWebHistory(),
@@ -13,9 +13,9 @@ export const router = createRouter({
             component: List,
         },
         {
-            path: "/essence/:id",
-            name: "Essence",
-            component: Essence
+            path: "/entity/:id",
+            name: "Entity",
+            component: EntityPage
         },
     ]});
 

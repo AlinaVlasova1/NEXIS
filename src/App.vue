@@ -8,12 +8,12 @@
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import List from "@/components/List/List.vue";
-import Essence from "@/components/ Essence/Essence.vue";
+import EntityPage from "@/components/Entity/Entity.vue";
 
 @Options({
   components: {
     List,
-    Essence
+    EntityPage
   },
 })
 export default class App extends Vue {}

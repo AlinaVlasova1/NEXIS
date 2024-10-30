@@ -1,25 +1,26 @@
 <script lang="ts">
 import {defineComponent} from "vue";
-import {IEssence} from "@/model/model";
+import {EntityResponse} from "@/model/model";
 import {router} from "@/main";
 import _ from 'lodash';
-import {getAllEssences} from "@/services/essence";
+import {EntityService} from "@/services/entity-service";
 
 export default defineComponent({
   name: 'ListPage',
   data() {
     return {
       titleArr: [] as string[],
-      objectArrDisplay: [] as Array<IEssence>,
-      objectArrAll: [] as Array<IEssence>,
+      objectArrDisplay: [] as Array<EntityResponse>,
+      objectArrAll: [] as Array<EntityResponse>,
       object: {
-        id:0,
-        title:"заголовок",
-        description:"text",
-        published:true,
-        published_from:"2019-10-01"
-      } as IEssence,
+        id: 0,
+        title: "заголовок",
+        description: "text",
+        published: true,
+        published_from: "2019-10-01"
+      } as EntityResponse,
       searchName: '' as string,
+      entityService: new EntityService(),
     }
   },
   methods: {
@@ -30,7 +31,7 @@ export default defineComponent({
       this.titleArr = Object.keys(this.object);
     },
     async setObjArr() {
-      const response = await getAllEssences();
+      const response = await this.entityService.getAllEntities();
       this.objectArrDisplay = await response.data;
       this.objectArrAll = _.cloneDeep(this.objectArrDisplay)
     },
@@ -62,12 +63,12 @@ export default defineComponent({
           <th class="column" v-for="(key, index) in titleArr" :key="index" >{{key}}</th>
         </tr>
         <tr v-for="(object, index) in objectArrDisplay" :key="index" class="active"
-            @click="router().push({ path: `/essence/${object.id}`})">
+            @click="router().push({ path: `/entity/${object.id}`})">
           <td class="column" v-for="(keyObj, index) in titleArr" :key="index">{{object[keyObj]}}</td>
         </tr>
         </tbody>
       </table>
-      <button class="btn" @click="router().push({ path: `/essence/${undefined}`})">Создать сущность</button>
+      <button class="btn" @click="router().push({ path: `/entity/${undefined}`})">Создать сущность</button>
     </div>
   </div>
 </template>

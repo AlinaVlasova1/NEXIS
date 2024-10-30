@@ -1,7 +1,45 @@
-export interface IEssence {
-    id: number | undefined, //число, обязательный идентификатор - выдается автоматически при сохранении
-    title?: string, // строка, не более 50 символов
-    description?: string, // markdown произвольного размера
-    published: boolean, // обязательное поле
-    published_from?: string | null // nullable дата
+export class UpdateEntityRequest {
+    id: number;
+    title?: string;
+    description?: string;
+    published: boolean;
+    published_from?: string;
+
+    constructor(id: number, title: string, description: string, published: boolean, published_from?: string) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.published = published;
+        this.published_from = published_from;
+    }
+}
+
+export class CreateEntityRequest {
+    title?: string;
+    description?: string;
+    published: boolean;
+    published_from?: string;
+
+    constructor(title: string, description: string, published: boolean, published_from?: string) {
+        this.title = title;
+        this.description = description;
+        this.published = published;
+        this.published_from = published_from;
+    }
+}
+
+export class EntityResponse {
+    id: number;
+    title?: string;
+    description?: string;
+    published: boolean;
+    published_from?: string;
+
+    constructor(id: number, title: string, description: string, published: boolean, published_from?: string) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.published = published;
+        this.published_from = published_from;
+    }
 }

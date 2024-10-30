@@ -1,24 +1,14 @@
-# nexis
+# Приложение для создания, редактирования и отображения листа сущностей
 
-## Project setup
+## Настройка проекта
+
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Локальный запуск проекта
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
